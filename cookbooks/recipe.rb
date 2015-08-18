@@ -5,6 +5,8 @@ end
 
 package 'git'
 
+# for Ruby Environment
+
 %w(autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev).each do |pkg|
   package pkg
 end
@@ -49,4 +51,6 @@ execute "gem install gems" do
   user 'vagrant'
   not_if ". #{PROFILE}; gem list | grep bundler"
 end
+
+# For gitbook(Node.js) Environment
 
