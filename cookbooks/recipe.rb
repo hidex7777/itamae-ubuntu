@@ -53,4 +53,34 @@ execute "gem install gems" do
 end
 
 # For gitbook(Node.js) Environment
+NVM_DIR = "/home/vagrant/.nvm"
+git NVM_DIR do
+  repository "git://github.com/creationix/nvm.git"
+  user 'vagrant'
+  not_if "test -d #{NVM_DIR}"
+end
 
+execute "checkout" do
+  cwd NVM_DIR
+  command "git checkout `git describe --abbrev=0 --tags`"
+  user 'vagrant'
+end
+
+execute "source" do
+  command ". #{NVM_DIR}/nvm.sh"
+  user 'vagrant'
+end
+
+execute "profile" do
+  command "echo '. ~/.nvm/nvm.sh' >> #{PROFILE}"
+  user 'vagrant'
+end
+
+execute "nvm install 0.12" do
+  command ". #{NVM_DIR}/nvm.sh; nvm install v0.12.7"
+  user 'vagrant'
+end
+execute "nvm use stable" do
+  command ". #{NVM_DIR}/nvm.sh; nvm use v0.12.7"
+  user 'vagrant'
+end
