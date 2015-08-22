@@ -1,0 +1,16 @@
+{
+  "gitbook": ">=2.0.0",
+  "title": "やりなおし口語文法：芥川「蜜柑」で学ぶ国文法",
+  "description": "芥川龍之介の短編「蜜柑」を使って、中学校国語の範囲の「国文法」を一気に「やりなおし」ます。",
+  "language": "jp",
+  "structure": {
+    "readme": "README.md"
+  },
+  "styles": {
+    "website": "css/website.css",
+    "pdf": "css/pdf.css",
+    "mobi": "css/mobi.css",
+    "epub": "css/epub.css"
+  },
+  "plugins": ["mathjax@1.0.0"]
+}
